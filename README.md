@@ -59,7 +59,7 @@ Use the syntax as explained in the above 'Command-Line' section in addition to u
 This is a cross-platform tool, meaning that it supports both Windows and Linux native compilers (``G++`` & ``CL``) - here are the compilation instructions:
 
 ### Windows (CL):
-- Open the [Visual Studio Developer Command Prompt]](https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-160) as an Administrator.
+- Open the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-160) as an Administrator.
 
 - In the developer command prompt, execute the following command to download the project's source code:
 ```CMD
