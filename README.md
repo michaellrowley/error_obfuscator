@@ -126,21 +126,3 @@ enum EState {		->	enum EState {
 }					->	}
 
 ```
-
-```mermaid
-graph TB
-	subgraph obfuscationsub [File obfuscation:]
-		startobfuscation([Start])-->filesleftcheck{Iterated over all files?}
-		filesleftcheck--yes-->endobfuscation
-		filesleftcheck--no-->backupfile(Backup next file)
-		backupfile-->findenums(Find all enums in the next file)
-		findenums-->enumsleftcheck{Iterated over all enums?}
-		enumsleftcheck--yes-->endobfuscation
-		enumsleftcheck--no-->parseenum(Parse enum into a ENUMSTRUCT)
-		parseenum-->obfenum(Obfuscate ENUMSTRUCT using member function 'obfuscate')
-		obfenum-->serializeenum(Serialize obfuscated enum to a code-compatible string)
-		serializeenum-->writeenum(Write serialized enum to file)
-		writeenum-->endobfuscation
-		endobfuscation([Return])
-	end
-```
