@@ -108,11 +108,11 @@ the user might have implemented.
 ```C++
 enum EState {			 ->	enum EState {
 	ERROR_FAILED = -1,	 ->		ERROR_FAILED = -93568,
-	ERROR_EXCEPTION = -2,->		ERROR_EXCEPTION = -425,
+	ERROR_EXCEPTION = -2,	 ->		ERROR_EXCEPTION = -425,
 	ERROR_NORAM = -3,	 ->		ERROR_NORAM = -383697,
 	ERROR_CRASH = -4,	 ->		ERROR_CRASH = -6863,
-	SUCCESS = 1			 ->		SUCCESS = 4956
-}						 -> }
+	SUCCESS = 1		 ->		SUCCESS = 4956
+}				 ->	}
 ```
 
 In addition to this, the obfuscation code also identifies multiple enums with the same value and resolves their new 'random' value to the same one throughout all identical values:
@@ -123,6 +123,6 @@ enum EState {		->	enum EState {
 	WALKING = 2,	->		WALKING = 28367,
 	SPRINTING = 1,	->		SPRINTING = 108525,
 	CLIMBING = 3	->		CLIMBING = 58396868
-}					->	}
+}			->	}
 
 ```
