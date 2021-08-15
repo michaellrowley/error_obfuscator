@@ -96,7 +96,7 @@ Here are the known edge cases that need patching in the future:
 |----|----|----|
 | Line-wide comments (``//``) in enums aren't handled properly when recreating ENUMSTRUCTs | No | Low |
 
-In addition to the above edge cases, this program should not bed used on more than ``INT_MAX`` files or on files with more than ``INT_MAX`` enums.
+In addition to the above edge case(s), this program should not be used on more than ``INT_MAX`` files or on files with more than ``INT_MAX`` enums.
 
 ---
 </br>
