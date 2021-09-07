@@ -1,16 +1,16 @@
 // DO NOT USE THIS TOOL ON CODE THAT YOU HAVE NOT WRITTEN,
-// IT HAS NOT BEEN *THOROUGHLY* SECURITY-VETTED THEREFORE
-// IT SHOULD BE ASSUMED THAT THIS IS NOT SECURITY-SAFE TO
+// IT HAS NOT BEEN *THOROUGHLY* VETTED THEREFORE
+// IT SHOULD BE ASSUMED THAT THIS IS NOT SAFE TO
 // USE WITH UNTRUSTED CODE.
 
 #ifdef VERSION
-// This way developers are able
-// to provide version increments
-// without having to modify src
-// code.
-#define g_version VERSION
+	// This way developers are able
+	// to provide version increments
+	// without having to modify src
+	// code.
+	#define g_version VERSION
 #else
-#define g_version "0.0.0"
+	#define g_version "0.1"
 #endif
 
 #include <regex>
@@ -18,13 +18,23 @@
 #include <string>
 #include <vector>
 #include <map>
-// Standalone copy of POSIX's dirent from Github ( https://raw.githubusercontent.com/tronkko/dirent/master/include/dirent.h )
-// This is used for enumerating directories' children as the only ways to do that (afaik)
-// are FindFirstFile/FindNextFile (Windows' API), std::filesystem::directory_iterator/
-// std::filesystem::directory_entry (C++17 or something), and dirent (opendir, closedir, readdir,
-// etc) and the only one that I could port to C++98 was dirent as its implementations
-// are open-source.
-#include "dirent.h"
+#ifdef __linux__
+	#include <climits> // INT_MAX, etc.
+	#include <dirent.h> // opendir, readdir, etc.
+	#include <sys/stat.h>
+	#include <unistd.h>
+#elif _WIN32
+	// This is a standalone copy of POSIX's dirent from Github
+	// ( https://raw.githubusercontent.com/tronkko/dirent/master/include/dirent.h )
+	// This is used for enumerating directories' children as the only ways to do that (afaik)
+	// are FindFirstFile/FindNextFile (Windows' API), std::filesystem::directory_iterator/
+	// std::filesystem::directory_entry (C++17 or something), and dirent (opendir, closedir, readdir,
+	// etc) and the only one that I could port to C++98 was dirent as its implementations
+	// are open-source.
+	#include "dirent.h"
+#else
+	#error Unable to infer OS, unsure which headers should be included/linked.
+#endif
 
 struct ENUMSTRUCT {
 	std::string name; // e.g 'enum alpha {' becomes 'alpha'
