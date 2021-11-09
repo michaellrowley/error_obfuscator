@@ -33,7 +33,7 @@
 	// are open-source.
 	#include "dirent.h"
 #else
-	#error Unable to infer OS, unsure which headers should be included/linked.
+	#error Unable to infer OS, (can't decide which headers should be included/linked).
 #endif
 
 struct ENUMSTRUCT {
