@@ -1,8 +1,0 @@
-enum ReturnValue {
-	INVALID_ONE = -1,
-	INVALID_TWO = -2,
-	INVALID_THREE = -3,
-	SUCCESS_ONE = 1,
-	SUCCESS_TWO = 2,
-	SUCCESS_THREE = 3
-};
